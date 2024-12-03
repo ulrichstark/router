@@ -5,11 +5,10 @@ import { virtualRootRouteSchema } from './filesystem/virtual/config'
 
 const defaultTemplate = {
   routeTemplate: [
-    'import * as React from "react";\n',
     '%%tsrImports%%',
     '\n\n',
     '%%tsrExportStart%%{\n component: RouteComponent\n }%%tsrExportEnd%%\n\n',
-    'function RouteComponent() { return "Hello %%tsrPath%%!" };\n',
+    'function RouteComponent() { return <div>Hello "%%tsrPath%%"!</div> };\n',
   ].join(''),
   apiTemplate: [
     'import { json } from "@tanstack/start";\n',
@@ -45,6 +44,9 @@ export const configSchema = z.object({
   autoCodeSplitting: z.boolean().optional(),
   indexToken: z.string().optional().default('index'),
   routeToken: z.string().optional().default('route'),
+  pathParamsAllowedCharacters: z
+    .array(z.enum([';', ':', '@', '&', '=', '+', '$', ',']))
+    .optional(),
   customScaffolding: z
     .object({
       routeTemplate: z

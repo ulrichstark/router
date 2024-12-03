@@ -97,10 +97,10 @@ Both flat and directory routes can be mixed together to create a route tree that
 
 Dynamic path params can be used in both flat and directory routes to create routes that can match a dynamic segment of the URL path. Dynamic path params are denoted by the `$` character in the filename:
 
-| Filename              | Route Path       | Component Output            |
-| --------------------- | ---------------- | --------------------------- |
-| ...                   | ...              | ...                         |
-| ʦ `posts.$postId.tsx` | `/posts/$postId` | `<Root><Posts><Post><Post>` |
+| Filename              | Route Path       | Component Output      |
+| --------------------- | ---------------- | --------------------- |
+| ...                   | ...              | ...                   |
+| ʦ `posts.$postId.tsx` | `/posts/$postId` | `<Root><Posts><Post>` |
 
 We'll learn more about dynamic path params in the [Path Params](./path-params.md) guide.
 
@@ -350,7 +350,7 @@ export default defineConfig({
 
 ### Ignoring the generated route tree file
 
-If your project is configured to use a linter and/or formatter, you may want to ignore the generated route tree file. This is this file is managed by TanStack Router and shouldn't and therefore shouldn't be changed by your linter or formatter.
+If your project is configured to use a linter and/or formatter, you may want to ignore the generated route tree file. This file is managed by TanStack Router and therefore shouldn't be changed by your linter or formatter.
 
 Here are some resources to help you ignore the generated route tree file:
 
