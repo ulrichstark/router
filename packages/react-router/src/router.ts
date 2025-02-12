@@ -464,8 +464,24 @@ export interface RouterOptions<
    * @default false
    */
   scrollRestoration?: boolean
+  /**
+   * A function that will be called to get the key for the scroll restoration cache.
+   *
+   * @default (location) => location.href
+   */
   getScrollRestorationKey?: (location: ParsedLocation) => string
+  /**
+   * The default behavior for scroll restoration.
+   *
+   * @default 'auto'
+   */
   scrollRestorationBehavior?: ScrollBehavior
+  /**
+   * An array of selectors that will be used to scroll to the top of the page in addition to `window`
+   *
+   * @default ['window']
+   */
+  scrollToTopSelectors?: Array<string>
 }
 
 export interface RouterErrorSerializer<TSerializedError> {
@@ -1744,13 +1760,21 @@ export class Router<
     ...next
   }: ParsedLocation & CommitLocationOptions): Promise<void> => {
     const isSameState = () => {
-      // `state.key` is ignored but may still be provided when navigating,
-      // temporarily add the previous key to the next state so it doesn't affect
+      // the following props are ignored but may still be provided when navigating,
+      // temporarily add the previous values to the next state so they don't affect
       // the comparison
-
-      next.state.key = this.latestLocation.state.key
+      const ignoredProps = [
+        'key',
+        '__TSR_index',
+        '__hashScrollIntoViewOptions',
+      ] as const
+      ignoredProps.forEach((prop) => {
+        ;(next.state as any)[prop] = this.latestLocation.state[prop]
+      })
       const isEqual = deepEqual(next.state, this.latestLocation.state)
-      delete next.state.key
+      ignoredProps.forEach((prop) => {
+        delete next.state[prop]
+      })
       return isEqual
     }
 
@@ -1855,7 +1879,7 @@ export class Router<
     if (reloadDocument) {
       if (!href) {
         const location = this.buildLocation({ to, ...rest } as any)
-        href = location.href
+        href = this.history.createHref(location.href)
       }
       if (rest.replace) {
         window.location.replace(href)
@@ -2041,6 +2065,13 @@ export class Router<
       loadPromise !== this.latestLoadPromise
     ) {
       await this.latestLoadPromise
+    }
+
+    if (this.hasNotFoundMatch()) {
+      this.__store.setState((s) => ({
+        ...s,
+        statusCode: 404,
+      }))
     }
   }
 
