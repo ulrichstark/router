@@ -37,6 +37,18 @@ export function getFrameworkOptions(framework: string): FrameworkOptions {
         dummyHMRComponent: `export function TSRDummyComponent() { return null }`,
       }
       break
+    case 'vue':
+      frameworkOptions = {
+        package: '@tanstack/vue-router',
+        idents: {
+          createFileRoute: 'createFileRoute',
+          lazyFn: 'lazyFn',
+          lazyRouteComponent: 'lazyRouteComponent',
+          dummyHMRComponent: 'TSRDummyComponent',
+        },
+        dummyHMRComponent: `export function TSRDummyComponent() { return null }`,
+      }
+      break
     default:
       throw new Error(
         `[getFrameworkOptions] - Unsupported framework: ${framework}`,
