@@ -1,0 +1,67 @@
+{
+  "hash": "bdc00507",
+  "configHash": "63905d3a",
+  "lockfileHash": "f4606a1a",
+  "browserHash": "41990c18",
+  "optimized": {
+    "@angular/core": {
+      "src": "../../../../../../node_modules/.pnpm/@angular+core@19.2.4_rxjs@7.8.1_zone.js@0.15.0/node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "e20f4020",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../../node_modules/.pnpm/@angular+platform-browser@19.2.4_@angular+common@19.2.4_@angular+core@19.2.4_rxjs@7.8.1_zone._6feotqxmeko5wf46j6j36bhfcy/node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "eb7e91af",
+      "needsInterop": false
+    },
+    "@tanstack/angular-router": {
+      "src": "../../../../../../packages/angular-router/dist/fesm2022/tanstack-angular-router.mjs",
+      "file": "@tanstack_angular-router.js",
+      "fileHash": "308787e3",
+      "needsInterop": false
+    },
+    "@tanstack/angular-router-devtools": {
+      "src": "../../../../../../packages/angular-router-devtools/dist/fesm2022/tanstack-angular-router-devtools.mjs",
+      "file": "@tanstack_angular-router-devtools.js",
+      "fileHash": "43c9b607",
+      "needsInterop": false
+    },
+    "redaxios": {
+      "src": "../../../../../../node_modules/.pnpm/redaxios@0.5.1/node_modules/redaxios/dist/redaxios.module.js",
+      "file": "redaxios.js",
+      "fileHash": "a748d25b",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-LOC7ESM5": {
+      "file": "chunk-LOC7ESM5.js"
+    },
+    "chunk-3S33LVVJ": {
+      "file": "chunk-3S33LVVJ.js"
+    },
+    "chunk-QZ2YKBDB": {
+      "file": "chunk-QZ2YKBDB.js"
+    },
+    "BaseTanStackRouterDevtoolsPanel-LXHUZAXD": {
+      "file": "BaseTanStackRouterDevtoolsPanel-LXHUZAXD.js"
+    },
+    "FloatingTanStackRouterDevtools-JAODFE67": {
+      "file": "FloatingTanStackRouterDevtools-JAODFE67.js"
+    },
+    "chunk-BCQDO4RV": {
+      "file": "chunk-BCQDO4RV.js"
+    },
+    "chunk-RJV7ZQ7L": {
+      "file": "chunk-RJV7ZQ7L.js"
+    },
+    "chunk-3JUTRO22": {
+      "file": "chunk-3JUTRO22.js"
+    },
+    "chunk-WDMUDEB6": {
+      "file": "chunk-WDMUDEB6.js"
+    }
+  }
+}
