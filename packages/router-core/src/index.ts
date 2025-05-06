@@ -243,7 +243,6 @@ export type {
   InvalidateFn,
   ControllablePromise,
   InjectedHtmlEntry,
-  RouterErrorSerializer,
   EmitFn,
   LoadFn,
   GetMatchFn,
@@ -254,7 +253,7 @@ export type {
   MatchRoutesFn,
   StartTransitionFn,
   LoadRouteChunkFn,
-  ServerSrr,
+  ServerSsr,
   ClearCacheFn,
   CreateRouterFn,
 } from './router'
