@@ -218,19 +218,16 @@ export function TanStackServerFnPluginEnv(
       applyToEnvironment(environment) {
         return environment.name === opts.server.envName
       },
-      resolveId(id) {
-        if (id === opts.manifestVirtualImportId) {
+      resolveId: {
+        filter: { id: new RegExp(opts.manifestVirtualImportId) },
+        handler(id) {
           return resolveViteId(id)
-        }
-
-        return undefined
+        },
       },
-      load(id) {
-        if (id !== resolveViteId(opts.manifestVirtualImportId)) {
-          return undefined
-        }
-
-        const manifestWithImports = `
+      load: {
+        filter: { id: new RegExp(resolveViteId(opts.manifestVirtualImportId)) },
+        handler() {
+          const manifestWithImports = `
           export default {${Object.entries(directiveFnsById)
             .map(
               ([id, fn]: any) =>
@@ -241,7 +238,8 @@ export function TanStackServerFnPluginEnv(
             )
             .join(',')}}`
 
-        return manifestWithImports
+          return manifestWithImports
+        },
       },
     },
   ]

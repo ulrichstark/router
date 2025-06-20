@@ -15,6 +15,13 @@ declare module 'tanstack-start-route-tree:v' {
 declare module 'tanstack-start-server-fn-manifest:v' {
   import type { DirectiveFn } from '@tanstack/directive-functions-plugin'
 
-  const serverFnManifest: Record<string, DirectiveFn>
+  const serverFnManifest: Record<
+    string,
+    {
+      importer: () => Promise<Record<string, (...args: any[]) => Promise<any>>>
+      functionName: string
+    }
+  >
+
   export default serverFnManifest
 }
