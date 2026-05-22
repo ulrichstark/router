@@ -27,13 +27,13 @@ Examples of **incorrect** code for this rule:
 /* eslint "@tanstack/router/useless-outlet-component": "warn" */
 import { createFileRoute, Outlet } from '@tanstack/react-router'
 
-function RouteComponent() {
-  return <Outlet />
-}
-
 export const Route = createFileRoute('/path')({
   component: RouteComponent,
 })
+  
+function RouteComponent() {
+  return <Outlet />
+}
 ```
 
 <!-- ::end:tabs -->
