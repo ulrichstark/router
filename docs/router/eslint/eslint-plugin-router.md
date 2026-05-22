@@ -94,6 +94,7 @@ Alternatively, add `@tanstack/eslint-plugin-router` to the plugins section, and 
 The following rules are available in the TanStack Router ESLint Plugin:
 
 - [@tanstack/router/create-route-property-order](./create-route-property-order.md)
+- [@tanstack/router/useless-outlet-component](./useless-outlet-component.md)
 
 ## Conflicts with other ESLint plugins
 

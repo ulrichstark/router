@@ -9,10 +9,12 @@ type Context = Parameters<Create>[0]
 type Options = Parameters<Create>[1]
 type Helpers = {
   isSpecificTanstackRouterImport: (
-    node: TSESTree.Identifier,
+    node: TSESTree.Identifier | TSESTree.JSXIdentifier,
     source: string,
   ) => boolean
-  isTanstackRouterImport: (node: TSESTree.Identifier) => boolean
+  isTanstackRouterImport: (
+    node: TSESTree.Identifier | TSESTree.JSXIdentifier,
+  ) => boolean
 }
 
 type EnhancedCreate = (

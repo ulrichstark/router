@@ -323,6 +323,10 @@
         {
           "label": "Create Route Property Order",
           "to": "eslint/create-route-property-order"
+        },
+        {
+          "label": "Useless Outlet Component",
+          "to": "eslint/useless-outlet-component"
         }
       ]
     },
